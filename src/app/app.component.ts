@@ -1,14 +1,36 @@
-import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { RouterOutlet } from '@angular/router';
+import {Component, OnDestroy} from '@angular/core';
+import * as Y from 'yjs';
+import {WebsocketProvider} from 'y-websocket';
+import {CodemirrorBinding} from 'y-codemirror';
+import 'codemirror/mode/javascript/javascript.js';
 
 @Component({
-  selector: 'app-root',
-  standalone: true,
-  imports: [CommonModule, RouterOutlet],
+  selector: 'my-app',
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrls: ['./app.component.css']
 })
-export class AppComponent {
-  title = 'vaultr-ui';
+export class AppComponent implements OnDestroy {
+
+  private binding: CodemirrorBinding | undefined;
+
+  constructor() {
+  }
+
+  public onCodeMirrorLoaded(codeMirrorComponent: any) {
+    const yDoc = new Y.Doc();
+    const provider = new WebsocketProvider(
+      'ws://localhost:3000',
+      'codemirror-demo',
+      yDoc
+    );
+    const yText = yDoc.getText('codemirror');
+    const yUndoManager = new Y.UndoManager(yText)
+
+    this.binding = new CodemirrorBinding(yText, codeMirrorComponent.codeMirror, provider.awareness, {yUndoManager});
+  }
+
+  public ngOnDestroy(): void {
+    this.binding?.destroy();
+  }
+
 }

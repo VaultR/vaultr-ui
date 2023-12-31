@@ -18,9 +18,13 @@
     "@angular/platform-browser": "^17.0.0",
     "@angular/platform-browser-dynamic": "^17.0.0",
     "@angular/router": "^17.0.0",
+    "@ctrl/ngx-codemirror": "^7.0.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
-    "zone.js": "~0.14.2"
+    "zone.js": "~0.14.2",
+    "yjs": "^13.5.22",
+    "y-websocket": "^1.3.18",
+    "y-codemirror": "^2.1.1"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^17.0.8",
