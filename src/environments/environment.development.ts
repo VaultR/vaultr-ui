@@ -1,4 +1,4 @@
 export const environment = {
   production: false,
-  noteApiUrl: 'localhost:3000'
+  noteApiUrl: 'host.docker.internal:3000'
 };
