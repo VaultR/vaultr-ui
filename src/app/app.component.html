@@ -1,10 +1,11 @@
-<p>TEST</p>
-
-<ngx-codemirror
-  [options]="{
-    lineNumbers: true,
-    theme: 'material',
-    mode: 'markdown'
-  }"
-  (codeMirrorLoaded)="onCodeMirrorLoaded($event)"
-></ngx-codemirror>
+<div class="app-container">
+  <div class="toolbar">
+    <vaultr-toolbar (selectionChange)="onSidebarSelectionChange($event)"></vaultr-toolbar>
+  </div>
+  <div class="sidebar">
+    <vaultr-sidebar [sidebarType]="currentSidebar"></vaultr-sidebar>
+  </div>
+  <div class="editor">
+    <router-outlet></router-outlet>
+  </div>
+</div>

@@ -1,6 +1,7 @@
 {
   "name": "vaultr-ui",
-  "version": "0.0.0",
+  "version": "0.0.1",
+  "private": true,
   "scripts": {
     "build:development": "ng build --configuration development",
     "watch:development": "ng build --watch --configuration development",
@@ -10,7 +11,6 @@
     "start:production": "ng serve --configuration production",
     "test": "ng test"
   },
-  "private": true,
   "dependencies": {
     "@angular/animations": "^17.0.0",
     "@angular/common": "^17.0.0",

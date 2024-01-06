@@ -8,5 +8,4 @@ import 'codemirror/mode/markdown/markdown';
 
 platformBrowserDynamic()
   .bootstrapModule(AppModule)
-  .then(ref => {})
   .catch(err => console.error(err));
