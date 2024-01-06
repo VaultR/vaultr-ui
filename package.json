@@ -21,12 +21,14 @@
     "@angular/platform-browser-dynamic": "^17.0.0",
     "@angular/router": "^17.0.0",
     "@ctrl/ngx-codemirror": "^7.0.0",
+    "autoprefixer": "^10.4.16",
+    "postcss": "^8.4.33",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
-    "zone.js": "~0.14.2",
-    "yjs": "^13.5.22",
+    "y-codemirror": "^2.1.1",
     "y-websocket": "^1.3.18",
-    "y-codemirror": "^2.1.1"
+    "yjs": "^13.5.22",
+    "zone.js": "~0.14.2"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^17.0.8",
@@ -39,6 +41,7 @@
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
+    "tailwindcss": "^3.4.1",
     "typescript": "~5.2.2"
   }
 }
