@@ -15,6 +15,7 @@ import {environment} from "../../../environments/environment";
 export class EditorComponent implements OnInit, OnDestroy {
   private binding: CodemirrorBinding | undefined;
   public noteId: string | null = null;
+  private provider: WebsocketProvider | undefined;
 
   constructor(private activatedRoute: ActivatedRoute,
               private router: Router) {
@@ -35,12 +36,13 @@ export class EditorComponent implements OnInit, OnDestroy {
   }
 
   public ngOnDestroy(): void {
+    this.provider?.disconnect();
     this.binding?.destroy();
   }
 
   public onCodeMirrorLoaded(codeMirrorComponent: any): void {
     const document = new Y.Doc();
-    const provider = new WebsocketProvider(
+    this.provider = new WebsocketProvider(
       `ws://${environment.noteApiUrl}`,
       this.noteId!,
       document
@@ -48,7 +50,7 @@ export class EditorComponent implements OnInit, OnDestroy {
     const text = document.getText(this.noteId!);
     const undoManager = new Y.UndoManager(text);
 
-    this.binding = new CodemirrorBinding(text, codeMirrorComponent.codeMirror, provider.awareness, {
+    this.binding = new CodemirrorBinding(text, codeMirrorComponent.codeMirror, this.provider.awareness, {
       yUndoManager: undoManager
     });
   }
