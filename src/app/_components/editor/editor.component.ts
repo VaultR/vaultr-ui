@@ -32,8 +32,7 @@ export class EditorComponent implements OnInit, OnDestroy {
 
   public onCodeMirrorLoaded(codeMirrorComponent: any): void {
     const document = new Y.Doc();
-    this.provider = new WebsocketProvider(`ws://${environment.noteApiUrl}`, this.id!, document
-    );
+    this.provider = new WebsocketProvider(`ws://${environment.noteApiUrl}`, this.id!, document);
     const text = document.getText(this.id!);
     const undoManager = new Y.UndoManager(text);
 
