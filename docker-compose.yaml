@@ -1,0 +1,24 @@
+version: '3.8'
+
+name: vaultr-ui
+
+services:
+
+  vaultr-ui:
+    container_name: vaultr-ui
+    build: .
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
+    ports:
+      - "4200:4200"
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+    networks:
+      - vaultr-net
+
+networks:
+  vaultr-net:
+    name: vaultr-net
+    driver: bridge
+    external: true

@@ -1,0 +1,13 @@
+<p>Editor
+  <button [routerLink]="''">X</button>
+</p>
+
+<h3>Note ID: {{ id }}</h3>
+
+<ngx-codemirror
+  [options]="{
+    lineNumbers: true,
+    mode: 'markdown'
+  }"
+  (codeMirrorLoaded)="onCodeMirrorLoaded($event)"
+></ngx-codemirror>

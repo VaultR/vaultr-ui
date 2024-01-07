@@ -1,0 +1,16 @@
+.app-container {
+  display: flex;
+  gap: 10px;
+}
+
+.toolbar {
+  width: 100px;
+}
+
+.sidebar {
+  width: 200px;
+}
+
+.editor {
+  flex-grow: 1;
+}
